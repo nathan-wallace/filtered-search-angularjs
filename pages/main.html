@@ -1,0 +1,116 @@
+<header id="topHeader">
+    <div class="row">
+        <div class="container">
+        	<div class="col-sm-6 text-center img-responsive">
+                <div id="logo"></div>
+            </div>
+            <div class="col-sm-6">
+                <h1 class="page-title text-center">Obituary Collection</h1>
+            </div>
+        </div>
+	</div>
+</header>
+<div class="container main-content">
+    <div class="row">
+        <header>
+        <div class="container">
+            <div class="col-md-12 well">
+         		<div class="row" style="margin-bottom:15px;">
+                    <div class="col-lg-6">
+                        <p>Instructional text for searching the obituary data.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="input-group search-bar">
+                        	<input type="text" class="form-control"  ng-model="searchName" placeholder="Search by name..."> 
+                        </div><!-- /input-group -->
+                    </div><!-- /.col-lg-6 -->
+                </div><!-- /.row -->
+                <div class="row clearfix">
+                    <div class="col-sm-4">
+                        <select selectpicker="" ng-model="selectedYear" data-live-search="true" data-size="5" title='Search Year...'>
+                            <option ng-repeat="year in years" value="{{year}}" data-icon="glyphicon-calendar">{{year}}</option>
+                        </select>
+                        <button class="btn btn-default" ng-show="selectedYear != '$'" type="button" ng-click="selectedYear = '$'"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                    </div>
+                    
+                    <div class="col-sm-4">
+                        <select selectpicker="" ng-model="selectedDegree" data-live-search="true" data-size="5" title='Search Degree...'>
+                            <option ng-repeat="degree in degrees" data-icon="glyphicon-education" value="{{degree}}">{{degree}}</option>
+                        </select>
+                        <button class="btn btn-default" type="button" ng-show="selectedDegree != '$'" ng-click="selectedDegree = '$'"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+                    </div>
+                    <div class="col-md-4">
+                    	<!--<div class="btn btn-default">
+                            <span ng-click="selectYear()">Refine</span>
+                        </div>-->
+                        <div class="btn btn-default" ng-show="selectedDegree != '$' || selectedYear != '$' || searchName != ''" >
+                            <span ng-click="resetFilters()">Show All</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </header> 
+    </div>
+    <div class="text-center"><!--<p>Showing {{filtered.length}} of {{filtered.length}}</p>--><pagination ng-model="currentPage" ng-change="pageChanged()" max-size="noOfPages" total-items="totalItems" items-per-page="entryLimit"></pagination>
+    </div>
+    <div class="row multi-columns-row" >  
+            <!--<div ng-repeat="obituary in filtered = obituaries | filter:search[queryBy] | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit" class="col-xs-12 col-sm-6 col-md-4 col-lg-4" ng-click="open(lg, obituary)">-->
+            <div ng-repeat="obituary in filtered = (obituaries | filterMultiple:queryBy) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit" class="col-xs-12 col-sm-6 col-md-4 col-lg-4" ng-click="open(lg, obituary)">
+                    <div class="panel panel-default obit-item">
+                      <div class="panel-heading">
+                        <h3 class="panel-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{obituary.name | capitalize:true}}</h3>
+                      </div>
+                      <div class="panel-body">
+                        <p>Date of Death: {{obituary.deceased_date}}</p>
+                        <p>Date of Notification: {{obituary.notified_date}}</p>
+                        <p>Cause of Death: <span ng-show="obituary.cause != ''">{{obituary.cause | capitalize:true}}</span><span ng-show="obituary.cause == ''">Unspecified</span></p>
+                        <p>Degree: {{obituary.d1 | uppercase}}<span ng-show="obituary.d2 != ''">, {{obituary.d2 | uppercase}}</span><span ng-show="obituary.d3 != ''">, {{obituary.d3 | uppercase}}</span><span ng-show="obituary.d4 != ''">, {{obituary.d4 | uppercase}}</span></p>
+                        <p>Graduated: {{obituary.y1}}<span ng-show="obituary.y2 != ''">, {{obituary.y2}}</span><span ng-show="obituary.y3 != ''">, {{obituary.y3}}</span><span ng-show="obituary.y4 != ''">, {{obituary.y4}}</span></p>
+                      </div>
+                </div>
+            </div>
+           
+    </div>
+    <div class="col-md-8 col-lg-9 text-center">
+    	<pagination ng-model="currentPage" ng-change="pageChanged()" max-size="noOfPages" total-items="totalItems" items-per-page="entryLimit"></pagination>
+    </div>
+    <div class="col-md-4 col-lg-3 items-per-page">
+        <p class="text-center">Items Per Page:
+            <select selectpicker="" ng-model="entryLimit" data-width="60px" title='9'>
+                <option value="15">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+        
+        <a href="#top" title="Back to Top" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+            <button style="margin-left:10px;" class="btn btn-primary" ng-click="$('html,body').animate({scrollTop:0},'slow');return false;"><i class="glyphicon glyphicon-chevron-up"></i></button>
+        </a></p>
+    </div>
+    
+</div>
+<!--<span id="top-link-block" class="pull-right">
+    <a href="#top" onclick="$('html,body').animate({scrollTop:0},'slow');return false;">
+        <button class="btn" ng-click="$('html,body').animate({scrollTop:0},'slow');return false;"><i class="glyphicon glyphicon-chevron-up"></i></button>
+    </a>
+</span> /top-link-block -->
+</div>
+
+<script type="text/ng-template" id="singleObituary.html">
+        <div class="modal-header">
+            <h3 class="modal-title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{obituary.name | capitalize:true}}</h3>
+        </div>
+        <div class="modal-body">
+            <p>Date of Death: {{obituary.deceased_date}}</p>
+			<p>Date of Notification: {{obituary.notified_date}}</p>
+			<p>Date of Notification: <span ng-show="obituary.notified_date != ''">{{obituary.notified_date}}</span><span ng-show="obituary.notified_date == ''">Unspecified</span></p>
+                        <p>Cause of Death: <span ng-show="obituary.cause != ''">{{obituary.cause | capitalize:true}}</span><span ng-show="obituary.cause == ''">Unspecified</span></p>
+                        <p>Degree: {{obituary.d1 | uppercase}}<span ng-show="obituary.d2 != ''">, {{obituary.d2 | uppercase}}</span><span ng-show="obituary.d3 != ''">, {{obituary.d3 | uppercase}}</span><span ng-show="obituary.d4 != ''">, {{obituary.d4 | uppercase}}</span></p>
+                        <p>Graduated: {{obituary.y1}}<span ng-show="obituary.y2 != ''">, {{obituary.y2}}</span><span ng-show="obituary.y3 != ''">, {{obituary.y3}}</span><span ng-show="obituary.y4 != ''">, {{obituary.y4}}</span></p>
+         
+        </div>
+        <div class="modal-footer">
+            <!--<button class="btn btn-primary" ng-click="ok()">OK</button>-->
+            <button class="btn btn-warning" ng-click="cancel()">Close</button>
+        </div>
+</script>

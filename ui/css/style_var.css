@@ -1,0 +1,399 @@
+		@-webkit-keyframes Rise-Up {
+		    0% {
+		        top:150px;
+		        left:0;
+		        z-index:0;
+		    }
+		    25% {
+		        top:25px;
+		        z-index:5;
+		    }
+		    100% {
+		        top: 100px;
+		    }
+		}
+		@-moz-keyframes Rise-Up {
+		    0% {
+		        top:150px;
+		        left:0;
+		        z-index:0;
+		    }
+		    25% {
+		        top:25px;
+		        z-index:5;
+		    }
+		    100% {
+		        top: 100px;
+		    }
+		}
+		@-o-keyframes Rise-Up {
+		    0% {
+		        top:150px;
+		        left:0;
+		        z-index:0;
+		    }
+		    25% {
+		        top:25px;
+		        z-index:5;
+		    }
+		    100% {
+		        top: 100px;
+		    }
+		}
+		@keyframes Rise-Up {
+		    0% {
+		        top:150px;
+		        left:0;
+		        z-index:0;
+		    }
+		    25% {
+		        top:25px;
+		        z-index:5;
+		    }
+		    100% {
+		        top: 100px;
+		    }
+		}
+		html {overflow-x:hidden; height:100%; width:100%; background:url('../img/binding_light.png'); position:static;} 
+		body {
+			width:200%; height:100%; transition:margin .4s; margin:0;
+		}
+		#bgImg {
+			background:url('../img/binding_light.png');
+			height:100%; width:200%;
+			position:fixed;
+		}
+		#testParallax {
+			width:25px; height:25px; background: #000; position:absolute; top:100px; left:600px;
+		}
+		#paneMsg, #paneSignup {
+			margin:0; padding:0;
+			position: relative;
+			height:100%;
+			/*overflow:hidden;*/
+		}
+		#paneMsg {
+			width:50%;
+			float:left;
+		}
+		#paneSignup {
+			width:50%;
+			float:left;
+		}
+		#paneSignup div.content {
+			margin: 0px 80px; border:none; height:100%;
+		}
+		#paneSignup:after {
+			content: '';
+			display:block;
+			clear:both;
+		}
+		#btnNext, #btnPrev {
+			width:36px; height:36px; display:block; z-index:7; cursor:pointer;
+
+		}
+		#btnNext {
+			position:fixed; right:0px; top: 0; transition:right .4s;
+			height: 100%;
+			background: url('../../btnNext.png') no-repeat center rgba(255,255,255,.33);
+			background-position-y: calc( 50% - 24px );
+			box-shadow:0 0 5px rgba(0,0,0,.2);
+		}
+		#btnNext:hover {right:0px;}
+		#btnPrev {
+			position:fixed; left:0px; top: 0; transition:left .4s;
+			height: 100%;
+			background: url('../../btnPrev.png') no-repeat center rgba(255,255,255,.33);
+			background-position-y: calc( 50% - 24px );
+			box-shadow:0 0 5px rgba(0,0,0,.2);
+		}
+		#btnPrev:hover {left:0px;}
+		.left #btnPrev {display:none!important;}
+		.right #btnNext {display:none!important;}
+		#envelope {
+		    width:260px;
+		    height:195px;
+		    position:relative;
+		    top:200px;
+		    margin:0 auto;
+		    -webkit-perspective: 500px;
+		    -moz-perspective: 500px;
+		    -o-perspective: 500px;
+		    perspective: 500px;
+		    transform-style: preserve-3d;
+		    box-shadow:0px 0px 5px rgba(0, 0, 0, .5);
+		    border-bottom-left-radius:5px;
+		    border-bottom-right-radius:5px;
+		}
+		#envFold, #envInterior, #envBack {
+		    position:absolute;
+		    width:100%;
+		    height:100%;
+		    border-bottom-left-radius:5px;
+		    border-bottom-right-radius:5px;
+		}
+		#envFold {
+		    background: url('http://campaign.georgetown.edu/advancement/Test/invitation/2014/envFolds.png') center center no-repeat;
+		    width:100%;
+		    height:100%;
+		    z-index:5;
+		    pointer-events: none;
+		}
+		#hideCard {
+		    width:260px;
+		    height:260px;
+		    position:absolute;
+		    bottom:0px;
+		    overflow:hidden;
+		    z-index:4;
+		}
+		#envCard {
+		    position:absolute;
+		    width:260px;
+		    height:260px;
+		    background: #EFEFEF;
+		    z-index:2;
+		    top:80px;
+		    -webkit-transition: top .3s;
+		    -moz-transition: top .3s;
+		    -o-transition: top .3s;
+		    transition: top .3s;
+		    border-radius:3px;
+		    cursor:pointer;
+		    -webkit-user-select: none;
+		    -moz-user-select: none;
+		    -ms-user-select: none;
+		    user-select: none;
+
+		}
+		#envCard:hover {
+		    top:10px;
+		    -webkit-transition: top 1.6s
+		    -moz-transition: top 1.6s
+		    -o-transition: top 1.6s
+		    transition: top 1.6s
+		}
+		#envCard p {
+		    margin:2em;
+		    color: #AAA;
+		    /*text-shadow: 0px 0px 1px #AAA, 0px 0px 3px #AAA, 0px 0px 6px #AAA, 0px 0px 9px #AAA, 0px 0px 12px #AAA, 0px 0px 15px #AAA, 0px 0px 18px #AAA, 0px 0px 21px #AAA, 0px 0px 24px #AAA, 0px 0px 27px #AAA, 0px 0px 30px #AAA;*/
+		}
+		#envCard p.clickTxt {
+		    margin-top:10px;
+		    text-align:center;
+		    font-family:sans-serif;
+		    text-transform:uppercase;
+		    color:#CCC;
+		    text-shadow:1px 1px 1px rgba(255, 255, 255, .6)
+		}
+		#message {position:absolute; top:0px;
+			width:100%;}
+		#cardCopy {
+		    position:relative;
+		    width:260px;
+		    min-height:460px;
+		    margin:0 auto;
+		    padding-bottom:1em;
+		    background: #EFEFEF;
+		    z-index:2;
+		    -webkit-animation:Rise-Up 1.5s 1;
+		    -moz-animation:Rise-Up 1.5s 1;
+		    -o-animation:Rise-Up 1.5s 1;
+		    animation:Rise-Up 1.5s 1;
+		    top:100px;
+		    left:125px;
+		    -webkit-transition: top 1s;
+		    -moz-transition: top 1s;
+		    -o-transition: top 1s;
+		    transition: top 1s;
+		    border-radius:3px;
+		    box-shadow:5px 5px 10px rgba(0, 0, 0, .15);
+		    padding-top:1px;
+		}
+		#cardCopy .close {
+		    position:absolute;
+		    top:2px;
+		    right:2px;
+		    color:#FFF;
+		    background: #CCC;
+		    width:18px;
+		    height:18px;
+		    line-height:18px;
+		    font-family:sans-serif;
+		    font-size:10px;
+		    border-radius:12px;
+		    text-align:center;
+		    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, .5);
+		    font-weight:bold;
+		    text-shadow: 0px 0px 4px #000;
+		    cursor:pointer;
+		}
+		#cardCopy .close:hover {
+		    background: #EEE;
+		}
+		#cardCopy .close:hover:after {
+		    content:'close';
+		    display:block;
+		    position:absolute;
+		    right:-30px;
+		    top:-10px;
+		    height:14px;
+		    line-height:14px;
+		    background: #FFA;
+		    border:1px solid #EE9;
+		    padding:2px;
+		    text-shadow:none;
+		    color: #AA3;
+		    border-radius: 5px;
+		}
+		#cardCopy p.clickTxt {
+		    display:none;
+		}
+		#cardCopy p {
+		    margin:2em;
+		}
+		#envInterior {
+		    background: url('http://campaign.georgetown.edu/advancement/Test/invitation/2014/envInterior.png')
+		}
+		#envBack {
+		}
+		#envFlap {
+		    position:absolute;
+		    z-index:6;
+		    top:0px;
+		    width:260px;
+		    height:116px;
+		    -webkit-transform-origin: 0% 0% 0px;
+		    -webkit-transform-style:preserve-3d;
+		    -moz-transform-origin: 0% 0% 0px;
+		    -moz-transform-style:preserve-3d;
+		    -o-transform-origin: 0% 0% 0px;
+		    -o-transform-style:preserve-3d;
+		    transform-origin: 0% 0% 0px;
+		    transform-style:preserve-3d;
+		    -webkit-transition:-webkit-transform .4s;
+		    -moz-transition:-moz-transform .1s;
+		    -o-transition:-o-transform .4s;
+		    transition:transform .4s;
+		}
+		#envFlap .front {
+		    position:absolute;
+		    width:260px;
+		    height:116px;
+		    top:0px;
+		    z-index:3;
+		    background: url('http://campaign.georgetown.edu/advancement/Test/invitation/2014/envFlap_outer.png') center top no-repeat;
+		    background-size: cover;
+		    -webkit-backface-visibility:visible;
+		    -moz-backface-visibility:visible;
+		    -o-backface-visibility:visible;
+		    backface-visibility:visible; 
+		}
+		#envFlap .back {
+		    position:absolute;
+		    width:260px;
+		    height:116px;
+		    top:0px;
+		    z-index:2;
+		    background:url('http://campaign.georgetown.edu/advancement/Test/invitation/2014/envFlap_inner.png') center top no-repeat;
+		    background-size: cover;
+		    -webkit-backface-visibility:hidden;
+		    -webkit-transform:rotateY(180deg)
+		    -moz-backface-visibility:hidden;
+		    -moz-transform:rotateY(180deg)
+		    -o-backface-visibility:hidden;
+		    -o-transform:rotateY(180deg)
+		    backface-visibility:hidden;
+		    transform:rotateY(180deg)
+		}
+		#envFlap.active {
+		    -webkit-transform:rotateX(180deg) translateZ(2px);
+		    -moz-transform:rotateX(180deg) translateZ(2px);
+		    -o-transform:rotateX(180deg) translateZ(2px);
+		    transform:rotateX(180deg) translateZ(2px);
+		    z-index:3
+		}
+		#envFlap.active .front{
+		    -webkit-backface-visibility:hidden;
+		    -moz-backface-visibility:hidden;
+		    -o-backface-visibility:hidden;
+		    backface-visibility:hidden; 
+		    z-index: 2;
+
+		}
+		#envFlap.active .back{
+		    -webkit-backface-visibility:visible;
+		    -moz-backface-visibility:visible;
+		    -o-backface-visibility:visible;
+		    backface-visibility:visible;
+
+		}
+		.hide {
+		    display:none;
+		}
+		iframe {
+			display:block; margin:0 auto;
+			height:100%;
+		}
+@media screen and (max-width: 959px){
+		@-webkit-keyframes Rise-Up {
+		    0% {
+		        top:150px;
+		        left:0;
+		        z-index:0;
+		    }
+		    25% {
+		        top:25px;
+		        left:0;
+		        z-index:5;
+		    }
+		    100% {
+		        top: 100px;
+		        left:0;
+
+		    }
+		}
+		@-moz-keyframes Rise-Up {
+		    0% {
+		        top:150px;
+		        left:0;
+		        z-index:0;
+		    }
+		    25% {
+		        top:25px;
+		        z-index:5;
+		    }
+		    100% {
+		        top: 100px;
+		    }
+		}
+		@-o-keyframes Rise-Up {
+		    0% {
+		        top:150px;
+		        left:0;
+		        z-index:0;
+		    }
+		    25% {
+		        top:25px;
+		        z-index:5;
+		    }
+		    100% {
+		        top: 100px;
+		    }
+		}
+		@keyframes Rise-Up {
+		    0% {
+		        top:150px;
+		        left:0;
+		        z-index:0;
+		    }
+		    25% {
+		        top:25px;
+		        z-index:5;
+		    }
+		    100% {
+		        top: 100px;
+		    }
+		}
+		#cardCopy {left:0;}
+}

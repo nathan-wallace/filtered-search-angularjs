@@ -1,0 +1,193 @@
+body {
+  background: #FFF url(../img/bg-content.jpg) repeat-x;
+  font-family: Georgia, "Times New Roman", serif;
+}
+#topHeader{
+	background-color:#011e41 !important;
+	min-height: 160px;
+}
+#topHeader #logo {
+  height: 74px;
+  width:311px;
+  background: url(../img/logo-sub.gif) no-repeat;
+  z-index: 1;
+  margin: 30px auto 0px;
+}
+
+#topHeader #logo .img-responsive {
+    margin: 0 auto;
+}
+
+.page-title {
+  font-size: 30px;
+  color: #FFF;
+  margin: 0;
+  display: block;
+  vertical-align: middle;
+  line-height: 100px;
+  font-family: "Adobe Caslon Pro";
+  margin-top:0px;
+}
+.items-per-page{
+	display:block;
+	position:relative;
+	right:0px;
+	top: 20px;
+}
+#top-link-block.affix-top {
+    position: absolute; /* allows it to "slide" up into view */
+    bottom: -82px;
+    left: 10px;
+}
+#top-link-block.affix {
+    position: fixed; /* keeps it on the bottom once in view */
+    bottom: 18px;
+    left: 10px;
+}
+@media (min-width: 768px) {
+	/* reset previous grid */
+	.page-title {
+		margin-top:30px;
+	}
+}
+
+/*Grid System Obituary Items*/
+.main-content{
+	background:#fff;
+}
+.well{
+	background:#011e41 !important;
+	color:#fff;
+	/*border: 5px solid #d7d2c5 !important;*/
+	border:none;
+	border-top:none !important;
+	border-radius: 0px 0px 5px 5px !important;
+	-moz-border-radius: 0px 0px 5px 5px !important;
+	-webkit-border-radius: 0px 0px 5px 5px !important;
+}
+
+.input-group .form-control:first-child, .input-group-addon:first-child, .input-group-btn:first-child>.btn, .input-group-btn:first-child>.btn-group>.btn, .input-group-btn:first-child>.dropdown-toggle, .input-group-btn:last-child>.btn-group:not(:last-child)>.btn, .input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle) {
+   border-radius: 5px !important;
+}
+.search-bar{
+	width:100% !important;
+}
+
+.obit-item{
+	cursor:pointer;
+}
+.obit-item:hover{
+	webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05) !important;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05) !important;
+}
+.obit-item:hover .panel-heading, .obit-item.hover .panel-heading {
+  color: #fff !important;
+  background-color: #011e41 !important;
+  border-color: #011e41 !important;
+}
+
+.panel-default>.panel-heading {
+  color: #333;
+  background-color: #d7d2c5;
+  border-color: #d7d2c5;
+}
+
+.panel-default {
+  border-color:#d7d2c5 !important;
+  webkit-box-shadow: 0 5px 5px rgba(0,0,0,.05) !important;
+  box-shadow: 0 5px 5px rgba(0,0,0,.05)!important;
+}
+}
+
+/*USE GTOWN COLORS */
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+  background-color: #011e41 !important;
+  border-color: #011e41 !important;
+  color:#fff !important;
+}
+
+
+.pagination>.active>a {
+  color:#fff !important;
+  background-color: #011e41 !important;
+  border-color: #011e41 !important;
+}
+
+.pagination>li>a, .pagination>li>span {
+  color: #011e41 !important;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #011e41  !important;
+  border-color: #011e41  !important;
+}
+.btn-warning {
+  color: #fff;
+  background-color: #8a2432 !important;
+  border-color: #8a2432 !important;
+}
+
+/*FIX THE SHIFTING OF BODY WHEN MODAL OPENS */
+body.modal-open {
+  overflow: auto;
+}
+
+/*FIX THE GRID ROW HEIGHT */
+
+/* clear first in row in ie 8 or lower */
+.multi-columns-row .first-in-row {
+	clear: left;
+}
+
+/* clear the first in row for any block that has the class "multi-columns-row" */
+.multi-columns-row .col-xs-6:nth-child(2n + 3) { clear: left; }
+.multi-columns-row .col-xs-4:nth-child(3n + 4) { clear: left; }
+.multi-columns-row .col-xs-3:nth-child(4n + 5) { clear: left; }
+.multi-columns-row .col-xs-2:nth-child(6n + 7) { clear: left; }
+.multi-columns-row .col-xs-1:nth-child(12n + 13) { clear: left; }
+
+@media (min-width: 768px) {
+	/* reset previous grid */
+	.multi-columns-row .col-xs-6:nth-child(2n + 3) { clear: none; }
+	.multi-columns-row .col-xs-4:nth-child(3n + 4) { clear: none; }
+	.multi-columns-row .col-xs-3:nth-child(4n + 5) { clear: none; }
+	.multi-columns-row .col-xs-2:nth-child(6n + 7) { clear: none; }
+	.multi-columns-row .col-xs-1:nth-child(12n + 13) { clear: none; }
+
+	/* clear first in row for small columns */
+	.multi-columns-row .col-sm-6:nth-child(2n + 3) { clear: left; }
+	.multi-columns-row .col-sm-4:nth-child(3n + 4) { clear: left; }
+	.multi-columns-row .col-sm-3:nth-child(4n + 5) { clear: left; }
+	.multi-columns-row .col-sm-2:nth-child(6n + 7) { clear: left; }
+	.multi-columns-row .col-sm-1:nth-child(12n + 13) { clear: left; }
+}
+@media (min-width: 992px) {
+	/* reset previous grid */
+	.multi-columns-row .col-sm-6:nth-child(2n + 3) { clear: none; }
+	.multi-columns-row .col-sm-4:nth-child(3n + 4) { clear: none; }
+	.multi-columns-row .col-sm-3:nth-child(4n + 5) { clear: none; }
+	.multi-columns-row .col-sm-2:nth-child(6n + 7) { clear: none; }
+	.multi-columns-row .col-sm-1:nth-child(12n + 13) { clear: none; }
+
+	/* clear first in row for medium columns */
+	.multi-columns-row .col-md-6:nth-child(2n + 3) { clear: left; }
+	.multi-columns-row .col-md-4:nth-child(3n + 4) { clear: left; }
+	.multi-columns-row .col-md-3:nth-child(4n + 5) { clear: left; }
+	.multi-columns-row .col-md-2:nth-child(6n + 7) { clear: left; }
+	.multi-columns-row .col-md-1:nth-child(12n + 13) { clear: left; }
+}
+@media (min-width: 1200px) {
+	/* reset previous grid */
+	.multi-columns-row .col-md-6:nth-child(2n + 3) { clear: none; }
+	.multi-columns-row .col-md-4:nth-child(3n + 4) { clear: none; }
+	.multi-columns-row .col-md-3:nth-child(4n + 5) { clear: none; }
+	.multi-columns-row .col-md-2:nth-child(6n + 7) { clear: none; }
+	.multi-columns-row .col-md-1:nth-child(12n + 13) { clear: none; }
+
+	/* clear first in row for large columns */
+	.multi-columns-row .col-lg-6:nth-child(2n + 3) { clear: left; }
+	.multi-columns-row .col-lg-4:nth-child(3n + 4) { clear: left; }
+	.multi-columns-row .col-lg-3:nth-child(4n + 5) { clear: left; }
+	.multi-columns-row .col-lg-2:nth-child(6n + 7) { clear: left; }
+	.multi-columns-row .col-lg-1:nth-child(12n + 13) { clear: left; }
+}
